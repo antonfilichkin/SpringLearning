@@ -18,4 +18,10 @@
         <constructor-arg ref="client"/>
         <constructor-arg ref="eventLogger"/>
     </bean>
+
+    <bean id="event" class="spring.core.beans.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+    </bean>
 </beans>
