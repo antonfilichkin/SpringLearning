@@ -1,21 +1,24 @@
 package spring.core;
 
+import lombok.AllArgsConstructor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.core.beans.Client;
 import spring.core.loggers.ConsoleEventLogger;
 
+@AllArgsConstructor
 public class App {
     private Client client;
-    private ConsoleEventLogger eventLogger;
+    private ConsoleEventLogger logger;
 
     public static void main(String[] args) {
-        App app = new App();
-        app.client = new Client("1", "John Smith");
-        app.eventLogger = new ConsoleEventLogger();
+        ApplicationContext appCtx = new ClassPathXmlApplicationContext("spring.xml");
+        App app = (App) appCtx.getBean("app");
         app.logEvent("Some event for user 1");
     }
 
     private void logEvent(String msg) {
         String message = msg.replaceAll(client.getId(), client.getFullName());
-        eventLogger.logEvent(message);
+        logger.logEvent(message);
     }
 }
