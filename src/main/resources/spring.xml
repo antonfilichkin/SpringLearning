@@ -12,16 +12,30 @@
         <constructor-arg value="John Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="spring.core.loggers.ConsoleEventLogger"/>
+    <bean id="consoleEventLogger" class="spring.core.loggers.ConsoleEventLogger"/>
+
+    <!--<bean id="fileEventLogger" class="spring.core.loggers.FileEventLogger" init-method="init"/>-->
+
+    <bean id="cachedFileEventLogger"
+          class="spring.core.loggers.CacheFileEventLogger"
+          init-method="init"
+          destroy-method="destroy">
+        <constructor-arg value="src/main/resources/log.txt"/>
+        <constructor-arg value="3"/>
+    </bean>
 
     <bean id="app" class="spring.core.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="cachedFileEventLogger"/>
     </bean>
 
     <bean id="event" class="spring.core.beans.Event" scope="prototype">
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
+        <constructor-arg ref="dateFormat"/>
     </bean>
+
+    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+
 </beans>

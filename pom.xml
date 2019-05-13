@@ -25,6 +25,7 @@
 <!--        <spring.ver>3.2.13.RELEASE</spring.ver>-->
         <spring.ver>5.1.6.RELEASE</spring.ver>
         <lombok.ver>1.18.6</lombok.ver>
+        <commons-io.ver>2.6</commons-io.ver>
     </properties>
 
     <dependencies>
@@ -59,5 +60,10 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.ver}</version>
+        </dependency>
     </dependencies>
 </project>

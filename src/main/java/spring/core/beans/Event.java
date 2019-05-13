@@ -1,20 +1,18 @@
 package spring.core.beans;
 
-import lombok.Data;
-
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
 
-@Data
 public class Event {
-    public int id;
-    public String msg;
-    public Date date;
+    private int id = new Random().nextInt();
+    private String msg;
+    private Date date;
+    private DateFormat df;
 
-    public Event(String msg) {
-        this.id = new Random().nextInt();
-        this.msg = msg;
-        this.date = new Date();
+    public Event(Date date, DateFormat df) {
+        this.date = date;
+        this.df = df;
     }
 
     public String getMsg() {
@@ -23,5 +21,14 @@ public class Event {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", msg='" + msg + '\'' +
+                ", date=" + df.format(date) +
+                '}';
     }
 }
