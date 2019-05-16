@@ -13,11 +13,18 @@
         <!--<constructor-arg index="0" value="1"/>-->
         <constructor-arg value="1"/>
         <constructor-arg value="John Smith"/>
+        <property name="greeting" value="Hello!"/>
     </bean>
 
     <bean id="app" class="spring.core.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="cachedFileEventLogger"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO" value-ref="consoleEventLogger"/>
+                <entry key="ERROR" value-ref="combinedEventLogger"/>
+            </map>
+        </constructor-arg>
     </bean>
 
 </beans>

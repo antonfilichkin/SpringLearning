@@ -1,11 +1,14 @@
 package spring.core.beans;
 
+import lombok.ToString;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
 
+
 public class Event {
-    private int id = new Random().nextInt();
+    private int id = new Random().nextInt(101) + 100;
     private String msg;
     private Date date;
     private DateFormat df;
