@@ -38,3 +38,9 @@ Event{id=104, msg='ERROR Some event for user 5', date=May 16, 2019 10:45:49 AM}
 Event{id=107, msg='ERROR Some event for user 3', date=May 16, 2019 10:52:09 AM}
 Event{id=115, msg='ERROR Some event for user 4', date=May 16, 2019 10:52:09 AM}
 Event{id=172, msg='ERROR Some event for user 5', date=May 16, 2019 10:52:09 AM}
+Event{id=189, msg='ERROR Some event for user 3', date=May 16, 2019 12:05:50 PM}
+Event{id=105, msg='ERROR Some event for user 4', date=May 16, 2019 12:05:50 PM}
+Event{id=179, msg='ERROR Some event for user 5', date=May 16, 2019 12:05:50 PM}
+Event{id=162, msg='ERROR Some event for user 3', date=May 16, 2019 12:23:18 PM}
+Event{id=117, msg='ERROR Some event for user 4', date=May 16, 2019 12:23:18 PM}
+Event{id=111, msg='ERROR Some event for user 5', date=May 16, 2019 12:23:18 PM}
