@@ -29,7 +29,7 @@
     </bean>
 
     <bean id="cachedFileEventLogger"
-          class="spring.core.loggers.CacheFileEventLogger"
+          class="spring.core.loggers.CachedFileEventLogger"
           init-method="init"
           destroy-method="destroy"
           parent="fileEventLogger">

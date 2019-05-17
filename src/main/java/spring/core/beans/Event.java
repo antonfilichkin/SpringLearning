@@ -1,8 +1,7 @@
 package spring.core.beans;
 
-import lombok.ToString;
-
 import java.text.DateFormat;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Random;
 
@@ -12,6 +11,14 @@ public class Event {
     private String msg;
     private Date date;
     private DateFormat df;
+
+    public static boolean isDay() {
+        LocalTime dayStart = LocalTime.parse("08:00");
+        LocalTime dayEnd = LocalTime.parse("17:00");
+        LocalTime now = LocalTime.now();
+
+        return now.isAfter(dayStart) && now.isBefore(dayEnd);
+    }
 
     public Event(Date date, DateFormat df) {
         this.date = date;

@@ -5,7 +5,7 @@ import spring.core.beans.Event;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CacheFileEventLogger extends FileEventLogger {
+public class CachedFileEventLogger extends FileEventLogger {
     private int cacheSize;
     private List<Event> cache = new ArrayList<>();
 
@@ -15,7 +15,7 @@ public class CacheFileEventLogger extends FileEventLogger {
         }
     }
 
-    public CacheFileEventLogger(String filename, int cacheSize) {
+    public CachedFileEventLogger(String filename, int cacheSize) {
         super.filename = filename;
         this.cacheSize = cacheSize;
     }

@@ -28,7 +28,7 @@ public class App {
         App app = (App) ctx.getBean("app");
         app.logEvent(INFO, "Some event for user 1");
         app.logEvent(INFO, "Some event for user 2");
-        app.logEvent(ERROR, "Some event for user 3");
+        app.logEvent(null, "Some event for user 3");
         app.logEvent(ERROR, "Some event for user 4");
         app.logEvent(ERROR, "Some event for user 5");
         ctx.close();
@@ -50,13 +50,14 @@ public class App {
     private void logEvent(EventType eventType, String msg) {
         String message = msg.replaceAll(client.getId(), client.getFullName());
         Event event = ctx.getBean(Event.class);
-        event.setMsg(eventType.toString() + " " + message);
 
         EventLogger logger = loggers.get(eventType);
         if (logger == null) {
             logger = defaultEventLogger;
+            event.setMsg(message);
+        } else {
+            event.setMsg(eventType.toString() + ", " + message);
         }
-
         logger.logEvent(event);
     }
 }
